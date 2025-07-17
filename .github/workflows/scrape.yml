@@ -4,28 +4,28 @@ on:
   workflow_dispatch:
 
 jobs:
-  run-spider:
+  run-scraper:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install scrapy
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
 
-      - name: Run spider
-        run: scrapy crawl table_spider
+    - name: Run Scrapy spider
+      run: scrapy crawl table_spider -o output.json
 
-      - name: Upload output.json
-        uses: actions/upload-artifact@v3
-        with:
-          name: scraped-data
-          path: output.json
+    - name: Upload result
+      uses: actions/upload-artifact@v4
+      with:
+        name: scraped-data
+        path: output.json
