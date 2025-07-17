@@ -48,3 +48,7 @@ class TableSpider(scrapy.Spider):
 
         # ✅ Clear JSON file after appending to CSV
         open(json_path, 'w').close()
+
+        def parse(self, response):
+            self.logger.info(f"Status code: {response.status}")
+            self.logger.info(f"Response length: {len(response.text)}")
