@@ -1,7 +1,9 @@
 name: Scrapy Spider Runner
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:       # 👈 Manual Run button
+  schedule:                # 👈 Automatic daily run
+    - cron: '0 4 * * *'    # Runs every day at 4:00 UTC (9:30 AM IST)
 
 jobs:
   run-scraper:
