@@ -1,9 +1,9 @@
 name: Scrapy Spider Runner
 
 on:
-  workflow_dispatch:       # 👈 Manual Run button
-  schedule:                # 👈 Automatic daily run
-    - cron: '0 4 * * *'    # Runs every day at 4:00 UTC (9:30 AM IST)
+  workflow_dispatch:
+  schedule:
+    - cron: '0 4 * * *'  # Daily at 4:00 UTC (9:30 AM IST)
 
 jobs:
   run-scraper:
@@ -24,10 +24,22 @@ jobs:
         pip install -r requirements.txt
 
     - name: Run Scrapy spider
-      run: scrapy crawl table_spider -o output.json
+      run: scrapy crawl table_spider
 
-    - name: Upload result
+    - name: Upload output.json
       uses: actions/upload-artifact@v4
       with:
         name: scraped-data
         path: output.json
+
+    - name: Upload output.csv
+      uses: actions/upload-artifact@v4
+      with:
+        name: scraped-csv
+        path: output.csv
+
+    - name: Upload debug HTML (optional)
+      uses: actions/upload-artifact@v4
+      with:
+        name: debug-html
+        path: cloud_response.html
