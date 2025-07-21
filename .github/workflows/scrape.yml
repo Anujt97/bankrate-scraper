@@ -5,6 +5,9 @@ on:
   schedule:
     - cron: '0 4 * * *'  # Daily at 4:00 UTC
 
+permissions:
+  contents: write  # ✅ Grant write access to the repo
+
 jobs:
   run-scraper:
     runs-on: ubuntu-latest
@@ -13,7 +16,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}  # Uses the default GitHub token
 
     - name: Set up Python
       uses: actions/setup-python@v5
