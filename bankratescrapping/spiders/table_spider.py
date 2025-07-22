@@ -55,5 +55,6 @@ class TableSpider(scrapy.Spider):
                 writer.writeheader()
             writer.writerows(data)
 
-        # ✅ Clear JSON after write
-        open(json_path, 'w').close()
+        # ✅ Overwrite JSON with new data (clears previous data by default)
+        with open(json_path, 'w') as f_json:
+            json.dump(data, f_json, indent=4)
