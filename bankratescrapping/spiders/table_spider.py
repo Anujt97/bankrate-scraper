@@ -13,18 +13,9 @@ class TableSpider(scrapy.Spider):
         csv_path = "output.csv"
         json_path = "output.json"
 
-        # ✅ Check if today's data already exists
-        if os.path.exists(csv_path):
-            with open(csv_path, 'r') as f_csv:
-                reader = csv.DictReader(f_csv)
-                for row in reader:
-                    if row['timestamp'] == today:
-                        self.logger.info(f"Data for {today} already exists. Skipping scraping.")
-                        return  # Exit early if today's data already exists
-
         rows = response.xpath('(//ul[.//li//button[contains(text(), "Purchase") and @tabindex="0"]]/following-sibling::div/div/table[contains(@class, "Table--numerical")])[1]/tbody/tr')
 
-        data = []
+        scraped_data = []
 
         for row in rows:
             product = row.xpath('.//th/a/text()').get()
@@ -41,20 +32,38 @@ class TableSpider(scrapy.Spider):
                 'timestamp': today,
             }
 
-            data.append(item)
+            scraped_data.append(item)
 
-        # ✅ Write JSON (temporary file, overwritten)
-        with open(json_path, 'w') as f_json:
-            json.dump(data, f_json, indent=4)
+        # Load existing JSON data (if any)
+        existing_data = []
+        if os.path.exists(json_path):
+            with open(json_path, 'r') as f_json:
+                try:
+                    existing_data = json.load(f_json)
+                except json.JSONDecodeError:
+                    existing_data = []
 
-        # ✅ Append to CSV
+        # Filter out duplicates based on Product + timestamp
+        new_data = []
+        existing_keys = {(item['Product'], item['timestamp']) for item in existing_data}
+
+        for item in scraped_data:
+            key = (item['Product'], item['timestamp'])
+            if key not in existing_keys:
+                new_data.append(item)
+
+        if not new_data:
+            self.logger.info(f"No new data for {today}. Skipping write.")
+            return
+
+        # Append new items to CSV
         file_exists = os.path.isfile(csv_path)
         with open(csv_path, 'a', newline='') as f_csv:
             writer = csv.DictWriter(f_csv, fieldnames=['Product', 'Interest Rate', 'APR', 'timestamp'])
             if not file_exists or os.path.getsize(csv_path) == 0:
                 writer.writeheader()
-            writer.writerows(data)
+            writer.writerows(new_data)
 
-        # ✅ Overwrite JSON with new data (clears previous data by default)
+        # Overwrite JSON to keep only today's scraped data
         with open(json_path, 'w') as f_json:
-            json.dump(data, f_json, indent=4)
+            json.dump(scraped_data, f_json, indent=4)
