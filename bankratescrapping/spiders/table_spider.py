@@ -56,13 +56,26 @@ class TableSpider(scrapy.Spider):
             self.logger.info(f"No new data for {today}. Skipping write.")
             return
 
-        # Append new items to CSV
-        file_exists = os.path.isfile(csv_path)
-        with open(csv_path, 'a', newline='') as f_csv:
-            writer = csv.DictWriter(f_csv, fieldnames=['Product', 'Interest Rate', 'APR', 'timestamp'])
-            if not file_exists or os.path.getsize(csv_path) == 0:
-                writer.writeheader()
-            writer.writerows(new_data)
+        # Load existing CSV keys to check duplicates
+        csv_keys = set()
+        if os.path.exists(csv_path):
+            with open(csv_path, 'r', newline='') as f:
+                csv_keys = {(row['Product'], row['timestamp']) for row in csv.DictReader(f)}
+
+        # Filter out duplicates for CSV
+        unique_data = [item for item in new_data if (item['Product'], item['timestamp']) not in csv_keys]
+
+        # Write only new rows to CSV
+        if unique_data:
+            file_exists = os.path.exists(csv_path)
+            with open(csv_path, 'a', newline='') as f_csv:
+                writer = csv.DictWriter(f_csv, fieldnames=['Product', 'Interest Rate', 'APR', 'timestamp'])
+                if not file_exists or os.path.getsize(csv_path) == 0:
+                    writer.writeheader()
+                writer.writerows(unique_data)
+        else:
+            self.logger.info(f"No unique rows to add to CSV for {today}. Skipping CSV write.")
+
 
         # Overwrite JSON to keep only today's scraped data
         with open(json_path, 'w') as f_json:
