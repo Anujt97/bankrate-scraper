@@ -3,6 +3,7 @@ import datetime
 import json
 import csv
 import os
+import re
 
 class TableSpider(scrapy.Spider):
     name = "table_spider"
@@ -25,11 +26,32 @@ class TableSpider(scrapy.Spider):
             interest_rate = row.xpath('.//td[1]/text()').get()
             apr = row.xpath('.//td[2]/text()').get()
 
+            # Extract year from product using regex
+            loan_term_years = None
+            if product:
+                match = re.search(r'(\d+)-Year', product)
+                if match:
+                    loan_term_years = int(match.group(1))
+
+            # Get just the text content (not the full <p> tag)
+            updated_text = row.xpath('(//p[starts-with(text(), "Rates as of")])[1]/text()').get()
+
+            date_match = re.search(r'([A-Za-z]+ \d{1,2}, \d{4})', updated_text)
+
+            updated_date = None
+            if date_match:
+                raw_date = date_match.group(1)  # "July 25, 2025"
+                parsed_date = datetime.datetime.strptime(raw_date, "%B %d, %Y")
+                updated_date = parsed_date.strftime("%Y-%m-%d")             
+
             item = {
                 'Product': product.strip() if product else None,
                 'Interest Rate': interest_rate.strip() if interest_rate else None,
                 'APR': apr.strip() if apr else None,
                 'timestamp': today,
+                'lender_name': 'BankRate',
+                'loan_term_years': loan_term_years,
+                'updated_date': updated_date
             }
 
             scraped_data.append(item)
@@ -69,7 +91,7 @@ class TableSpider(scrapy.Spider):
         if unique_data:
             file_exists = os.path.exists(csv_path)
             with open(csv_path, 'a', newline='') as f_csv:
-                writer = csv.DictWriter(f_csv, fieldnames=['Product', 'Interest Rate', 'APR', 'timestamp'])
+                writer = csv.DictWriter(f_csv, fieldnames=['Product', 'Interest Rate', 'APR', 'timestamp', 'lender_name', 'loan_term_years', 'updated_date'])
                 if not file_exists or os.path.getsize(csv_path) == 0:
                     writer.writeheader()
                 writer.writerows(unique_data)
