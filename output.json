@@ -1,44 +1,44 @@
 [
     {
         "Product": "30-Year Fixed Rate",
-        "Interest Rate": "6.77%",
-        "APR": "6.84%",
-        "timestamp": "2025-07-24"
+        "Interest Rate": "6.75%",
+        "APR": "6.81%",
+        "timestamp": "2025-07-25"
     },
     {
         "Product": "20-Year Fixed Rate",
-        "Interest Rate": "6.48%",
+        "Interest Rate": "6.50%",
         "APR": "6.59%",
-        "timestamp": "2025-07-24"
+        "timestamp": "2025-07-25"
     },
     {
         "Product": "15-Year Fixed Rate",
-        "Interest Rate": "6.01%",
-        "APR": "6.11%",
-        "timestamp": "2025-07-24"
+        "Interest Rate": "5.91%",
+        "APR": "6.01%",
+        "timestamp": "2025-07-25"
     },
     {
         "Product": "10-Year Fixed Rate",
-        "Interest Rate": "6.05%",
-        "APR": "6.15%",
-        "timestamp": "2025-07-24"
+        "Interest Rate": "5.92%",
+        "APR": "5.99%",
+        "timestamp": "2025-07-25"
     },
     {
         "Product": "30-Year Fixed Rate FHA",
-        "Interest Rate": "6.84%",
-        "APR": "6.89%",
-        "timestamp": "2025-07-24"
+        "Interest Rate": "6.44%",
+        "APR": "6.50%",
+        "timestamp": "2025-07-25"
     },
     {
         "Product": "30-Year Fixed Rate VA",
-        "Interest Rate": "6.87%",
-        "APR": "6.92%",
-        "timestamp": "2025-07-24"
+        "Interest Rate": "6.50%",
+        "APR": "6.54%",
+        "timestamp": "2025-07-25"
     },
     {
         "Product": "30-Year Fixed Rate Jumbo",
-        "Interest Rate": "6.72%",
-        "APR": "6.77%",
-        "timestamp": "2025-07-24"
+        "Interest Rate": "6.78%",
+        "APR": "6.84%",
+        "timestamp": "2025-07-25"
     }
 ]
