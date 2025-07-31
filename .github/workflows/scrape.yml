@@ -39,3 +39,5 @@ jobs:
         git commit -m "⬆️ Update output files with new scraped data [CI skip]" || echo "No changes to commit"
         git push
 
+    - name: Install dependencies
+      run: pip install -r requirements.txt

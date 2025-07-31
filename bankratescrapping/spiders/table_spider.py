@@ -4,13 +4,15 @@ import json
 import csv
 import os
 import re
+import pytz
 
 class TableSpider(scrapy.Spider):
     name = "table_spider"
     start_urls = ["https://www.bankrate.com/mortgages/mortgage-rates/"]
 
     def parse(self, response):
-        today = datetime.datetime.now().date().isoformat()
+        ist = pytz.timezone('Asia/Kolkata')
+        today = datetime.datetime.now(ist).date().isoformat()
         csv_path = "output.csv"
         json_path = "output.json"
 
@@ -41,7 +43,7 @@ class TableSpider(scrapy.Spider):
             updated_date = None
             if date_match:
                 raw_date = date_match.group(1)  # "July 25, 2025"
-                parsed_date = datetime.datetime.strptime(raw_date, "%B %d, %Y")
+                parsed_date = ist.localize(datetime.datetime.strptime(raw_date, "%B %d, %Y"))
                 updated_date = parsed_date.strftime("%Y-%m-%d")             
 
             item = {
