@@ -31,6 +31,13 @@ jobs:
     - name: Run Scrapy spider
       run: scrapy crawl table_spider
 
+    - name: 📤 Upload log file
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: scrapy-log
+        path: scrapy_log.log
+
     - name: Commit and push updated files
       run: |
         git config --global user.name "github-actions[bot]"
@@ -38,10 +45,3 @@ jobs:
         git add output.csv output.json
         git commit -m "⬆️ Update output files with new scraped data [CI skip]" || echo "No changes to commit"
         git push
-
-    - name: 📤 Upload log file
-      if: always()
-      uses: actions/upload-artifact@v4
-      with:
-        name: scrapy-log
-        path: scrapy_log.log
