@@ -36,12 +36,12 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: scrapy-log
-        path: scrapy_log.log
+        path: logs/scrapy_log.log
 
     - name: Commit and push updated files
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        git add output.csv output.json scrapy_log.log
+        git add output.csv output.json logs/scrapy_log.log
         git commit -m "⬆️ Update output files with new scraped data [CI skip]" || echo "No changes to commit"
         git push
