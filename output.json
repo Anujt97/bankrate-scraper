@@ -3,7 +3,7 @@
         "Product": "30-Year Fixed Rate",
         "Interest Rate": "6.21%",
         "APR": "6.27%",
-        "timestamp": "2025-10-27",
+        "timestamp": "2025-10-28",
         "lender_name": "BankRate",
         "loan_term_years": 30,
         "updated_date": "2025-10-27"
@@ -12,7 +12,7 @@
         "Product": "20-Year Fixed Rate",
         "Interest Rate": "5.97%",
         "APR": "6.05%",
-        "timestamp": "2025-10-27",
+        "timestamp": "2025-10-28",
         "lender_name": "BankRate",
         "loan_term_years": 20,
         "updated_date": "2025-10-27"
@@ -21,7 +21,7 @@
         "Product": "15-Year Fixed Rate",
         "Interest Rate": "5.56%",
         "APR": "5.65%",
-        "timestamp": "2025-10-27",
+        "timestamp": "2025-10-28",
         "lender_name": "BankRate",
         "loan_term_years": 15,
         "updated_date": "2025-10-27"
@@ -30,7 +30,7 @@
         "Product": "10-Year Fixed Rate",
         "Interest Rate": "5.61%",
         "APR": "5.71%",
-        "timestamp": "2025-10-27",
+        "timestamp": "2025-10-28",
         "lender_name": "BankRate",
         "loan_term_years": 10,
         "updated_date": "2025-10-27"
@@ -39,7 +39,7 @@
         "Product": "30-Year Fixed Rate FHA",
         "Interest Rate": "6.26%",
         "APR": "6.31%",
-        "timestamp": "2025-10-27",
+        "timestamp": "2025-10-28",
         "lender_name": "BankRate",
         "loan_term_years": 30,
         "updated_date": "2025-10-27"
@@ -48,7 +48,7 @@
         "Product": "30-Year Fixed Rate VA",
         "Interest Rate": "6.43%",
         "APR": "6.47%",
-        "timestamp": "2025-10-27",
+        "timestamp": "2025-10-28",
         "lender_name": "BankRate",
         "loan_term_years": 30,
         "updated_date": "2025-10-27"
@@ -57,7 +57,7 @@
         "Product": "30-Year Fixed Rate Jumbo",
         "Interest Rate": "6.36%",
         "APR": "6.40%",
-        "timestamp": "2025-10-27",
+        "timestamp": "2025-10-28",
         "lender_name": "BankRate",
         "loan_term_years": 30,
         "updated_date": "2025-10-27"
