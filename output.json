@@ -3,7 +3,7 @@
         "Product": "30-Year Fixed Rate",
         "Interest Rate": "6.07%",
         "APR": "6.14%",
-        "timestamp": "2026-02-22",
+        "timestamp": "2026-02-23",
         "lender_name": "BankRate",
         "loan_term_years": 30,
         "updated_date": "2026-02-22"
@@ -12,7 +12,7 @@
         "Product": "20-Year Fixed Rate",
         "Interest Rate": "5.87%",
         "APR": "5.98%",
-        "timestamp": "2026-02-22",
+        "timestamp": "2026-02-23",
         "lender_name": "BankRate",
         "loan_term_years": 20,
         "updated_date": "2026-02-22"
@@ -21,7 +21,7 @@
         "Product": "15-Year Fixed Rate",
         "Interest Rate": "5.45%",
         "APR": "5.55%",
-        "timestamp": "2026-02-22",
+        "timestamp": "2026-02-23",
         "lender_name": "BankRate",
         "loan_term_years": 15,
         "updated_date": "2026-02-22"
@@ -30,7 +30,7 @@
         "Product": "10-Year Fixed Rate",
         "Interest Rate": "5.42%",
         "APR": "5.50%",
-        "timestamp": "2026-02-22",
+        "timestamp": "2026-02-23",
         "lender_name": "BankRate",
         "loan_term_years": 10,
         "updated_date": "2026-02-22"
@@ -39,7 +39,7 @@
         "Product": "30-Year Fixed Rate FHA",
         "Interest Rate": "5.68%",
         "APR": "5.73%",
-        "timestamp": "2026-02-22",
+        "timestamp": "2026-02-23",
         "lender_name": "BankRate",
         "loan_term_years": 30,
         "updated_date": "2026-02-22"
@@ -48,7 +48,7 @@
         "Product": "30-Year Fixed Rate VA",
         "Interest Rate": "5.81%",
         "APR": "5.86%",
-        "timestamp": "2026-02-22",
+        "timestamp": "2026-02-23",
         "lender_name": "BankRate",
         "loan_term_years": 30,
         "updated_date": "2026-02-22"
@@ -57,7 +57,7 @@
         "Product": "30-Year Fixed Rate Jumbo",
         "Interest Rate": "6.29%",
         "APR": "6.33%",
-        "timestamp": "2026-02-22",
+        "timestamp": "2026-02-23",
         "lender_name": "BankRate",
         "loan_term_years": 30,
         "updated_date": "2026-02-22"
