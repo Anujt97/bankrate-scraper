@@ -1,65 +1,65 @@
 [
     {
         "Product": "30-Year Fixed Rate",
-        "Interest Rate": "6.64%",
-        "APR": "6.71%",
-        "timestamp": "2026-07-14",
+        "Interest Rate": "6.59%",
+        "APR": "6.66%",
+        "timestamp": "2026-07-15",
         "lender_name": "BankRate",
         "loan_term_years": 30,
-        "updated_date": "2026-07-14"
+        "updated_date": "2026-07-15"
     },
     {
         "Product": "20-Year Fixed Rate",
-        "Interest Rate": "6.44%",
+        "Interest Rate": "6.43%",
         "APR": "6.55%",
-        "timestamp": "2026-07-14",
+        "timestamp": "2026-07-15",
         "lender_name": "BankRate",
         "loan_term_years": 20,
-        "updated_date": "2026-07-14"
+        "updated_date": "2026-07-15"
     },
     {
         "Product": "15-Year Fixed Rate",
-        "Interest Rate": "6.03%",
-        "APR": "6.12%",
-        "timestamp": "2026-07-14",
+        "Interest Rate": "5.99%",
+        "APR": "6.08%",
+        "timestamp": "2026-07-15",
         "lender_name": "BankRate",
         "loan_term_years": 15,
-        "updated_date": "2026-07-14"
+        "updated_date": "2026-07-15"
     },
     {
         "Product": "10-Year Fixed Rate",
-        "Interest Rate": "5.91%",
+        "Interest Rate": "5.89%",
         "APR": "6.00%",
-        "timestamp": "2026-07-14",
+        "timestamp": "2026-07-15",
         "lender_name": "BankRate",
         "loan_term_years": 10,
-        "updated_date": "2026-07-14"
+        "updated_date": "2026-07-15"
     },
     {
         "Product": "30-Year Fixed Rate FHA",
-        "Interest Rate": "6.31%",
-        "APR": "6.35%",
-        "timestamp": "2026-07-14",
+        "Interest Rate": "6.60%",
+        "APR": "6.65%",
+        "timestamp": "2026-07-15",
         "lender_name": "BankRate",
         "loan_term_years": 30,
-        "updated_date": "2026-07-14"
+        "updated_date": "2026-07-15"
     },
     {
         "Product": "30-Year Fixed Rate VA",
-        "Interest Rate": "6.34%",
-        "APR": "6.38%",
-        "timestamp": "2026-07-14",
+        "Interest Rate": "6.70%",
+        "APR": "6.76%",
+        "timestamp": "2026-07-15",
         "lender_name": "BankRate",
         "loan_term_years": 30,
-        "updated_date": "2026-07-14"
+        "updated_date": "2026-07-15"
     },
     {
         "Product": "30-Year Fixed Rate Jumbo",
-        "Interest Rate": "6.66%",
-        "APR": "6.69%",
-        "timestamp": "2026-07-14",
+        "Interest Rate": "6.63%",
+        "APR": "6.66%",
+        "timestamp": "2026-07-15",
         "lender_name": "BankRate",
         "loan_term_years": 30,
-        "updated_date": "2026-07-14"
+        "updated_date": "2026-07-15"
     }
 ]
